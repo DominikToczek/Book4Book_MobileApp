@@ -21,7 +21,7 @@ namespace Book4Book_MobileApp.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Announcements";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
