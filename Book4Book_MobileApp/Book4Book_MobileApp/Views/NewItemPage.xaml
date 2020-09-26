@@ -11,7 +11,34 @@
             <Label Text="Author" FontSize="Medium" />
             <Entry Text="{Binding Author, Mode=TwoWay}" FontSize="Medium" />
             <Label Text="Category" FontSize="Medium" />
-            <Entry Text="{Binding Category, Mode=TwoWay}" FontSize="Medium" />
+            <Picker Title="Select" SelectedItem="{Binding Category}" FontSize="Medium">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Actions</x:String>
+                        <x:String>Adventure</x:String>
+                        <x:String>Biographies and Autobiographies</x:String>
+                        <x:String>Classics</x:String>
+                        <x:String>Cookbooks</x:String>
+                        <x:String>Comic</x:String>
+                        <x:String>Detective</x:String>
+                        <x:String>Essays</x:String>
+                        <x:String>Fantasy</x:String>
+                        <x:String>History</x:String>
+                        <x:String>Historical Fiction</x:String>
+                        <x:String>Horror</x:String>
+                        <x:String>Literary Fiction</x:String>
+                        <x:String>Memoir</x:String>
+                        <x:String>Poetry</x:String>
+                        <x:String>Romance</x:String>
+                        <x:String>Science Fiction</x:String>
+                        <x:String>Self-Help</x:String>
+                        <x:String>Short Stories</x:String>
+                        <x:String>Suspense and Thrillers</x:String>
+                        <x:String>True Crime</x:String>
+                        <x:String>Women's Fiction</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
             <Label Text="City" FontSize="Medium" />
             <Entry Text="{Binding City, Mode=TwoWay}" FontSize="Medium" />
             <Label Text="Description" FontSize="Medium" />

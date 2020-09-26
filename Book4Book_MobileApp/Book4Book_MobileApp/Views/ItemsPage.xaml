@@ -25,10 +25,14 @@
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                        <Label Text="{Binding Description}" 
+                        <Label Text="{Binding Author}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
+                        <BoxView Color="{StaticResource Primary}" 
+                                 VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 HeightRequest="1" />
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
