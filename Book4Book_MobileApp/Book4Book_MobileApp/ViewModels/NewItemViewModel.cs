@@ -10,6 +10,9 @@ namespace Book4Book_MobileApp.ViewModels
     public class NewItemViewModel : BaseViewModel
     {
         private string text;
+        private string author;
+        private string category;
+        private string city;
         private string description;
 
         public NewItemViewModel()
@@ -23,6 +26,7 @@ namespace Book4Book_MobileApp.ViewModels
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(text)
+                && !String.IsNullOrWhiteSpace(author)
                 && !String.IsNullOrWhiteSpace(description);
         }
 
@@ -30,6 +34,24 @@ namespace Book4Book_MobileApp.ViewModels
         {
             get => text;
             set => SetProperty(ref text, value);
+        }
+
+        public string Author
+        {
+            get => author;
+            set => SetProperty(ref author, value);
+        }
+
+        public string Category
+        {
+            get => category;
+            set => SetProperty(ref category, value);
+        }
+
+        public string City
+        {
+            get => city;
+            set => SetProperty(ref city, value);
         }
 
         public string Description
@@ -51,8 +73,11 @@ namespace Book4Book_MobileApp.ViewModels
         {
             Item newItem = new Item()
             {
-                Id = Guid.NewGuid().ToString(),
+                IdTxt = Guid.NewGuid().ToString(),
                 Text = Text,
+                Author = Author,
+                Category = Category,
+                City = City,
                 Description = Description
             };
 

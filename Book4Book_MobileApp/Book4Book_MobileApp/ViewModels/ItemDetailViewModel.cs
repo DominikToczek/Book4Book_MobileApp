@@ -11,6 +11,9 @@ namespace Book4Book_MobileApp.ViewModels
     {
         private string itemId;
         private string text;
+        private string author;
+        private string category;
+        private string city;
         private string description;
         public string Id { get; set; }
 
@@ -18,6 +21,24 @@ namespace Book4Book_MobileApp.ViewModels
         {
             get => text;
             set => SetProperty(ref text, value);
+        }
+
+        public string Author
+        {
+            get => author;
+            set => SetProperty(ref author, value);
+        }
+
+        public string Category
+        {
+            get => category;
+            set => SetProperty(ref category, value);
+        }
+
+        public string City
+        {
+            get => city;
+            set => SetProperty(ref city, value);
         }
 
         public string Description
@@ -44,8 +65,11 @@ namespace Book4Book_MobileApp.ViewModels
             try
             {
                 var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
+                Id = item.IdTxt;
                 Text = item.Text;
+                Author = item.Author;
+                Category = item.Category;
+                City = item.City;
                 Description = item.Description;
             }
             catch (Exception)

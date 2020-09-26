@@ -1,6 +1,9 @@
-﻿using Book4Book_MobileApp.Interfaces;
+﻿using Book4Book_MobileApp.Droid;
+using Book4Book_MobileApp.Interfaces;
 using System.IO;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(FileHelperDroid))]
 namespace Book4Book_MobileApp.Droid
 {
     public class FileHelperDroid : IFileHelper

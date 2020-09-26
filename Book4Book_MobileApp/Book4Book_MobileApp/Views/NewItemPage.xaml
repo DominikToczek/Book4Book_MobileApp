@@ -6,8 +6,14 @@
              Title="New Item">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
+            <Label Text="Title" FontSize="Medium" />
             <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Author" FontSize="Medium" />
+            <Entry Text="{Binding Author, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Category" FontSize="Medium" />
+            <Entry Text="{Binding Category, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="City" FontSize="Medium" />
+            <Entry Text="{Binding City, Mode=TwoWay}" FontSize="Medium" />
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <StackLayout Orientation="Horizontal">
