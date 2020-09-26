@@ -44,7 +44,7 @@ namespace Book4Book_MobileApp.ViewModels
             try
             {
                 var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
+                Id = item.IdTxt;
                 Text = item.Text;
                 Description = item.Description;
             }

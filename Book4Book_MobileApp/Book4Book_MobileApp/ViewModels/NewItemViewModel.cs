@@ -51,7 +51,7 @@ namespace Book4Book_MobileApp.ViewModels
         {
             Item newItem = new Item()
             {
-                Id = Guid.NewGuid().ToString(),
+                IdTxt = Guid.NewGuid().ToString(),
                 Text = Text,
                 Description = Description
             };
