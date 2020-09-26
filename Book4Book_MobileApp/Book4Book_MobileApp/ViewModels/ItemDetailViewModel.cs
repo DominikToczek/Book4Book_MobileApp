@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using Book4Book_MobileApp.Models;
+using Book4Book_MobileApp.Views;
 using Xamarin.Forms;
 
 namespace Book4Book_MobileApp.ViewModels
@@ -15,6 +17,14 @@ namespace Book4Book_MobileApp.ViewModels
         private string category;
         private string city;
         private string description;
+
+        public Command DeleteItemCommand { get; }
+
+        public ItemDetailViewModel()
+        {
+            DeleteItemCommand = new Command(OnDeleteItem);
+        }
+
         public string Id { get; set; }
 
         public string Text
@@ -75,6 +85,15 @@ namespace Book4Book_MobileApp.ViewModels
             catch (Exception)
             {
                 Debug.WriteLine("Failed to Load Item");
+            }
+        }
+
+        private async void OnDeleteItem(object obj)
+        {
+            if (await Shell.Current.DisplayAlert("Delete Confirm", "Are you sure you want to delete this announcement?", "Yes", "No"))
+            {
+                await DataStore.DeleteItemAsync(Id);
+                await Shell.Current.GoToAsync("..");
             }
         }
     }
