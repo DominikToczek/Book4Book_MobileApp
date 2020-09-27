@@ -27,6 +27,8 @@ namespace Book4Book_MobileApp.ViewModels
         {
             return !String.IsNullOrWhiteSpace(text)
                 && !String.IsNullOrWhiteSpace(author)
+                && !String.IsNullOrWhiteSpace(category)
+                && !String.IsNullOrWhiteSpace(city)
                 && !String.IsNullOrWhiteSpace(description);
         }
 

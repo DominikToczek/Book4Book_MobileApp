@@ -14,6 +14,7 @@ namespace Book4Book_MobileApp.Database
         {
             database = new SQLiteAsyncConnection(databasePath);
             database.CreateTableAsync<Item>().Wait();
+            database.CreateTableAsync<User>().Wait();
         }
 
         public async Task<List<T>> GetAll<T>() where T : class, new()
