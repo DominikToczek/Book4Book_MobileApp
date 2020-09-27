@@ -80,7 +80,8 @@ namespace Book4Book_MobileApp.ViewModels
                 Author = Author,
                 Category = Category,
                 City = City,
-                Description = Description
+                Description = Description,
+                UserID = App.CurrentUser.ID
             };
 
             await DataStore.AddItemAsync(newItem);

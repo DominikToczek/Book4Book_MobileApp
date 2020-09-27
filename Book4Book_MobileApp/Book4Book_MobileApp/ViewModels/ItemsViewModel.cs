@@ -71,6 +71,12 @@ namespace Book4Book_MobileApp.ViewModels
 
         private async void OnAddItem(object obj)
         {
+            if (App.CurrentUser == null)
+            {
+                await Shell.Current.DisplayAlert("Add announcement", "You must login to add announcement", "OK");
+                return;
+            }
+
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 

@@ -43,7 +43,7 @@ namespace Book4Book_MobileApp.ViewModels
 
             if (userList.Any(e => e.Login == user.Login && e.Password == user.Password))
             {
-                App.CurrentUser = user;
+                App.CurrentUser = userList.FirstOrDefault(e => e.Login == user.Login && e.Password == user.Password);
                 // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
             }
