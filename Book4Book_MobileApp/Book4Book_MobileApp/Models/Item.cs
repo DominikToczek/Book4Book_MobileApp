@@ -13,5 +13,6 @@ namespace Book4Book_MobileApp.Models
         public string Author { get; set; }
         public string Category { get; set; }
         public string City { get; set; }
+        public int UserID { get; set; }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-using Book4Book_MobileApp.Models;
-using Book4Book_MobileApp.Views;
 using Xamarin.Forms;
 
 namespace Book4Book_MobileApp.ViewModels
@@ -17,6 +13,7 @@ namespace Book4Book_MobileApp.ViewModels
         private string category;
         private string city;
         private string description;
+        private int userId;
 
         public Command DeleteItemCommand { get; }
 
@@ -57,6 +54,12 @@ namespace Book4Book_MobileApp.ViewModels
             set => SetProperty(ref description, value);
         }
 
+        public int UserId
+        {
+            get => userId;
+            set => SetProperty(ref userId, value);
+        }
+
         public string ItemId
         {
             get
@@ -81,6 +84,7 @@ namespace Book4Book_MobileApp.ViewModels
                 Category = item.Category;
                 City = item.City;
                 Description = item.Description;
+                UserId = item.UserID;
             }
             catch (Exception)
             {
@@ -90,6 +94,18 @@ namespace Book4Book_MobileApp.ViewModels
 
         private async void OnDeleteItem(object obj)
         {
+            if (App.CurrentUser == null)
+            {
+                await Shell.Current.DisplayAlert("Delete", "You must login to delete announcements", "OK");
+                return;
+            }
+
+            if (userId != App.CurrentUser.ID)
+            {
+                await Shell.Current.DisplayAlert("Delete", "You are not the owner of this announcement.\n\nCan't delete this announcement", "OK");
+                return;
+            }
+
             if (await Shell.Current.DisplayAlert("Delete Confirm", "Are you sure you want to delete this announcement?", "Yes", "No"))
             {
                 await DataStore.DeleteItemAsync(Id);

@@ -2,6 +2,7 @@
 using Book4Book_MobileApp.Services;
 using Book4Book_MobileApp.Database;
 using Book4Book_MobileApp.Interfaces;
+using Book4Book_MobileApp.Models;
 
 namespace Book4Book_MobileApp
 {
@@ -21,6 +22,8 @@ namespace Book4Book_MobileApp
                 return localDatabase;
             }
         }
+
+        public static User CurrentUser { get; set; } = null;
 
         public App()
         {

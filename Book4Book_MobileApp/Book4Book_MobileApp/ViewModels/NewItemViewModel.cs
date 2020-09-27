@@ -27,6 +27,8 @@ namespace Book4Book_MobileApp.ViewModels
         {
             return !String.IsNullOrWhiteSpace(text)
                 && !String.IsNullOrWhiteSpace(author)
+                && !String.IsNullOrWhiteSpace(category)
+                && !String.IsNullOrWhiteSpace(city)
                 && !String.IsNullOrWhiteSpace(description);
         }
 
@@ -78,7 +80,8 @@ namespace Book4Book_MobileApp.ViewModels
                 Author = Author,
                 Category = Category,
                 City = City,
-                Description = Description
+                Description = Description,
+                UserID = App.CurrentUser.ID
             };
 
             await DataStore.AddItemAsync(newItem);

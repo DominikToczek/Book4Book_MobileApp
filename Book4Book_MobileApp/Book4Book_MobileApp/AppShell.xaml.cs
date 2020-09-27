@@ -17,6 +17,7 @@ namespace Book4Book_MobileApp
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
+            App.CurrentUser = null;
             await Shell.Current.GoToAsync("//LoginPage");
         }
     }
